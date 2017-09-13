@@ -27,26 +27,27 @@ class ViewController: UIViewController {
         equation.text = negative
     }
     
-    // all numbers have been assigned to the numbers function. Each button is tagged with a number that is one highe than the actual number on the button (i.e. 1 is tagged as 2)
+    // all numbers have been assigned to the numbers function. Each button is tagged with a number that is one higher than the actual number on the button (i.e. 1 is tagged as 2)
     @IBAction func numbers(_ sender: UIButton) {
         
-        if mathHappening == true
+        if mathHappening == true //if an operation has been selected
         {
             equation.text = String(sender.tag-1) // the equation label is modified to be whichever number has been selected by the user
             numScreen = Double(equation.text!)! //numScreen is stored as the number that last appeared on the screen
             mathHappening = false
         }
-        else
+        else //an operation has not been selected
         {
             equation.text = equation.text!
+            // if decimal button is selected add a decimal to the string in the equation label
             if sender.tag == 11 {
                 equation.text = equation.text!+decimal
             }
-            else
+            else //no decimal was selected proceed with the equation
             {
                 equation.text = equation.text!+String(sender.tag-1)
             }
-            numScreen = Double(equation.text!)!
+            numScreen = Double(equation.text!)! //the last number to appear on the screen store in the variable numScreen
         }
         
     }
@@ -54,29 +55,29 @@ class ViewController: UIViewController {
     @IBAction func button(_ sender: UIButton) {
         if equation.text != "" && sender.tag != 12 && sender.tag != 17
         {
-            firstNum = Double(equation.text!)!
+            firstNum = Double(equation.text!)! //store what is on the equation label as the first number in the calculation
             
             if sender.tag == 13
             {
-                //division
+                //displays division sign in equation label and stores division sign as a string in dispOperation
                 equation.text = "/"
                 dispOperation = "/"
             }
             else if sender.tag == 14
             {
-                //multiplication
+                //displays multiplication sign in equation label and stores multiplication sign as a string in dispOperation
                 equation.text = "X"
                 dispOperation = "X"
             }
             else if sender.tag == 15
             {
-                //subtraction
+                //displays subtraction sign in equation label and stores subtraction sign as a string in dispOperationsubtraction
                 equation.text = "-"
                 dispOperation = "-"
             }
             else if sender.tag == 16
             {
-                //addition
+                //displays addition sign in equation label and stores addition sign as a string in dispOperation
                 equation.text = "+"
                 dispOperation = "+"
             }
