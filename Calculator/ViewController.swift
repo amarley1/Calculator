@@ -113,6 +113,7 @@ class ViewController: UIViewController {
             equation.text = String(firstNum)+"  "+dispOperation+"  "+String(numScreen)
         }
         
+        //if user clicks clear button, all other variables and labels are zeroed or cleared
         else if sender.tag == 12
         {
             equation.text = ""
